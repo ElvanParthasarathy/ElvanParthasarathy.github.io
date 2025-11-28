@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvan Parthasarathy</title>
+    <style>
+        @font-face {
+            font-family: 'Mukta Malar';
+            src: url('MuktaMalar-Regular.ttf');
+        }
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --accent: #000000;
+        }
+        .dark {
+            --bg: #000000; /* Full AMOLED Black */
+            --text: #ffffff; /* Pure white text */
+            --accent: #ffffff; /* White accent for dark mode */
+        }
+        .dark .nav-pill {
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.25);
+        }
+        .dark .nav-wrapper {
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 8px 20px rgba(255,255,255,0.10);
+        }
+        body {
+            margin: 0;
+            font-family: 'Mukta Malar', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+        header {
+            pointer-events: auto;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .nav-wrapper {
+            display: inline-flex;
+            position: relative;
+            padding: 4px;
+            background: rgba(255,255,255,0.22);
+            backdrop-filter: blur(12px);
+            border-radius: 999px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+        .nav-pill {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            height: calc(100% - 8px);
+            width: 0;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+            transition: transform 0.35s ease, width 0.35s ease, opacity 0.35s ease;
+            opacity: 0;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+        }
+        nav a {
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 999px;
+            transition: color 0.25s ease, transform 0.25s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            transform: translateY(-1px);
+        }
+        .active-link {
+            color: var(--text) !important;
+            font-weight: 600;
+        }
+        .page {
+            display: none;
+            text-align: center;
+            min-height: 75vh;
+            padding: 30px 20px;
+            opacity: 0;
+            transform: translateX(0) scale(0.97);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            margin-top: 120px;
+        }
+        .title {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            transition: 0.4s ease;
+        }
+        .title-small {
+            font-size: 1.3rem;
+            opacity: 0.7;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 18px;
+            border-radius: 8px;
+            background: var(--accent);
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        /* Language button top-left */
+        #langBtn {
+            position: fixed;
+            bottom: 15px;
+            left: calc(50% - 140px);
+            z-index: 9999;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: none;
+            background: rgba(0,0,0,0.06);
+            color: var(--text);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+            color: #000000;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+        }
+        .dark #langBtn {
+            background: rgba(255,255,255,0.12);
+            color: #ffffff;
+        }
+        /* Search pill top-right */
+        #themeToggle {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(0,0,0,0.06);
+            backdrop-filter: blur(10px);
+        }
+        .dark #themeToggle {
+            background: rgba(255,255,255,0.10);
+            color: #ffffff;
+        }
+        @media (max-width: 768px) {
+            header {
+                top: auto;
+                bottom: 0;
+            }
+            .page {
+                margin-top: 40px;
+                margin-bottom: 90px;
+            }
+            #langBtn {
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header style="z-index:900;">
+    
+    <div class="nav-wrapper">
+        <div class="nav-pill" id="nav-pill"></div>
+        <nav>
+            <a onclick="showPage('home', this)" class="active-link">Home / முகப்பு</a>
+            <a onclick="showPage('blog', this)">Blog / கட்டுரைகள்</a>
+            <a onclick="showPage('stories', this)">Stories / கதைகள்</a>
+            <a onclick="showPage('thoughts', this)">Thoughts / கருத்துகள்</a>
+            <a onclick="showPage('about', this)">About / என்னைப்பற்றி</a>
+        </nav>
+    </div>
+    
+    </div>
+</header>
+
+<section id="home" class="page" style="display:block; opacity:1; transform:translateX(0) scale(1);">
+    <div style="margin-top:15vh;">
+        <h1 id="title-en" class="title">Elvan Parthasarathy</h1>
+        <h1 id="title-ta" class="title title-small">எல்வன் பார்த்தசாரதி</h1>
+        <h2 id="sub-en">(Original Name: Jaiprakash Parthasarathy)</h2>
+        <h2 id="sub-ta" class="title-small">(உண்மை பெயர்: ஜெய்ப்பிரகாஷ் பார்த்தசாரதி)</h2>
+    </div>
+</section>
+
+<div id="themeToggle" onclick="toggleThemeText()">Light | Dark</div>
+
+<section id="blog" class="page"><h2>Blog Coming Soon...</h2></section>
+<section id="stories" class="page"><h2>Stories Page Loading...</h2></section>
+<section id="thoughts" class="page"><h2>Thoughts Will Appear Here...</h2></section>
+<section id="about" class="page"><h2>About Me Updating Soon...</h2></section>
+
+<script>
+    const pageOrder = ['home','blog','stories','thoughts','about'];
+    let currentPage = 'home';
+    let isTamil = false;
+    let searchExpanded = false;
+
+    function applyLanguageUI() {
+        const t = document.getElementById('themeToggle');
+        const input = document.getElementById('searchInput');
+        const label = document.getElementById('searchLabel');
+        if (isTamil) {
+            if (t) t.innerText = 'Light | இருள்'; // English first, Tamil dark
+            if (input) input.placeholder = 'தேடவும்...';
+            if (label) label.textContent = 'தேடு';
+        } else {
+            if (t) t.innerText = 'Light | Dark';
+            if (input) input.placeholder = 'Search...';
+            if (label) label.textContent = 'Search';
+        }
+    }
+
+    function voidFunction() {
+        isTamil = !isTamil;
+        const tamilNow = isTamil;
+        if (tamilNow) {
+            document.getElementById('title-en').className = 'title title-small';
+            document.getElementById('title-ta').className = 'title';
+            document.getElementById('sub-en').className = 'title-small';
+            document.getElementById('sub-ta').className = '';
+        } else {
+            document.getElementById('title-en').className = 'title';
+            document.getElementById('title-ta').className = 'title title-small';
+            document.getElementById('sub-en').className = '';
+            document.getElementById('sub-ta').className = 'title-small';
+        }
+        applyLanguageUI();
+    }
+
+    function toggleThemeText() {
+        document.body.classList.toggle('dark');
+        applyLanguageUI();
+    }
+
+    function movePill(clickedLink) {
+        const pill = document.getElementById('nav-pill');
+        const wrapperRect = clickedLink.parentElement.getBoundingClientRect();
+        const linkRect = clickedLink.getBoundingClientRect();
+        const left = linkRect.left - wrapperRect.left;
+        const width = linkRect.width;
+        pill.style.opacity = '1';
+        pill.style.transform = `translateX(${left}px)`;
+        pill.style.width = width + 'px';
+    }
+
+    function showPage(pageId, clickedLink) {
+        if (pageId === currentPage) return;
+        const newIndex = pageOrder.indexOf(pageId);
+        const oldIndex = pageOrder.indexOf(currentPage);
+        const dir = newIndex > oldIndex ? 1 : -1;
+
+        const oldPage = document.getElementById(currentPage);
+        const newPage = document.getElementById(pageId);
+
+        // Prepare new page for entry
+        newPage.style.display = 'block';
+        newPage.style.opacity = '0';
+        newPage.style.transform = `translateX(${40 * dir}px) scale(0.96)`;
+
+        // force reflow
+        newPage.offsetHeight;
+
+        // animate out old page (front moves first)
+        oldPage.style.transform = `translateX(${-40 * dir}px) scale(0.96)`;
+        oldPage.style.opacity = '0';
+
+        // animate in new page slightly delayed
+        setTimeout(() => {
+            newPage.style.opacity = '1';
+            newPage.style.transform = 'translateX(0) scale(1)';
+        }, 40);
+
+        // after animation, hide old page
+        setTimeout(() => {
+            oldPage.style.display = 'none';
+            currentPage = pageId;
+        }, 420);
+
+        // update nav active state
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active-link'));
+        clickedLink.classList.add('active-link');
+        movePill(clickedLink);
+    }
+
+    function voidFunction(event) {
+        event.stopPropagation();
+        const bar = document.getElementById('searchBar');
+        const input = document.getElementById('searchInput');
+        if (!bar || !input) return;
+        searchExpanded = !searchExpanded;
+        if (searchExpanded) {
+            bar.classList.add('expanded');
+            input.focus();
+        } else {
+            bar.classList.remove('expanded');
+            input.blur();
+        }
+    }
+
+    document.addEventListener('click', (e) => {
+        const bar = document.getElementById('searchBar');
+        if (!bar) return;
+        if (!bar.contains(e.target)) {
+            bar.classList.remove('expanded');
+            searchExpanded = false;
+        }
+    });
+
+    window.addEventListener('load', () => {
+        const firstLink = document.querySelector('nav a');
+        if (firstLink) movePill(firstLink);
+        applyLanguageUI();
+    });
+</script>
+</body>
+</html>
