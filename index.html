@@ -330,6 +330,8 @@
     }
 
     function showPage(pageId, clickedLink) {
+        const isMobile = window.innerWidth <= 768;
+        if (pageId === currentPage) return;
         if (pageId === currentPage) return;
         const newIndex = pageOrder.indexOf(pageId);
         const oldIndex = pageOrder.indexOf(currentPage);
@@ -338,29 +340,39 @@
         const oldPage = document.getElementById(currentPage);
         const newPage = document.getElementById(pageId);
 
-        // Prepare new page for entry
-        newPage.style.display = 'block';
-        newPage.style.opacity = '0';
-        newPage.style.transform = `translateX(${40 * dir}px) scale(0.96)`;
-
-        // force reflow
-        newPage.offsetHeight;
-
-        // animate out old page (front moves first)
-        oldPage.style.transform = `translateX(${-40 * dir}px) scale(0.96)`;
-        oldPage.style.opacity = '0';
-
-        // animate in new page slightly delayed
-        setTimeout(() => {
-            newPage.style.opacity = '1';
-            newPage.style.transform = 'translateX(0) scale(1)';
-        }, 40);
-
-        // after animation, hide old page
-        setTimeout(() => {
-            oldPage.style.display = 'none';
+        if (isMobile) {
+            document.getElementById(currentPage).style.display = 'none';
+            const newPageMobile = document.getElementById(pageId);
+            newPageMobile.style.display = 'block';
+            newPageMobile.style.opacity = '1';
+            newPageMobile.style.transform = 'translateX(0) scale(1)';
             currentPage = pageId;
-        }, 420);
+        } else {
+            // Desktop Animation
+            const oldPage = document.getElementById(currentPage);
+            const newPage = document.getElementById(pageId);
+            const newIndex = pageOrder.indexOf(pageId);
+            const oldIndex = pageOrder.indexOf(currentPage);
+            const dir = newIndex > oldIndex ? 1 : -1;
+
+            newPage.style.display = 'block';
+            newPage.style.opacity = '0';
+            newPage.style.transform = `translateX(${40 * dir}px) scale(0.96)`;
+            newPage.offsetHeight;
+
+            oldPage.style.transform = `translateX(${-40 * dir}px) scale(0.96)`;
+            oldPage.style.opacity = '0';
+
+            setTimeout(() => {
+                newPage.style.opacity = '1';
+                newPage.style.transform = 'translateX(0) scale(1)';
+            }, 40);
+
+            setTimeout(() => {
+                oldPage.style.display = 'none';
+                currentPage = pageId;
+            }, 420);
+        }
 
         // update nav active state
         document.querySelectorAll('nav a').forEach(a => a.classList.remove('active-link'));
