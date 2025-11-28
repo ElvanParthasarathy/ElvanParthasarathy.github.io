@@ -174,8 +174,43 @@
         @media (max-width: 768px) {
             header {
                 top: auto;
-                bottom: 0;
+                bottom: 60px;
+                width: 100%;
             }
+            nav {
+                gap: 0;
+                justify-content: space-around;
+                width: 100vw;
+            }
+            nav a {
+                flex-direction: column;
+                display: flex;
+                align-items: center;
+                padding: 8px 0;
+                width: 20vw;
+                font-size: 0.7rem;
+            }
+            .icon {
+                font-size: 1.4rem;
+                margin-bottom: 3px;
+            }
+            .label {
+                font-size: 0.6rem;
+            }
+            .page {
+                margin-top: 20px;
+                min-height: calc(100vh - 150px);
+            }
+            .nav-wrapper {
+                width: 100%;
+                border-radius: 0;
+                padding: 6px 0;
+            }
+            .nav-pill {
+                height: 38px;
+                border-radius: 18px;
+            }
+        }
             .page {
                 margin-top: 40px;
                 margin-bottom: 90px;
