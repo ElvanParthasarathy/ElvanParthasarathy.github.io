@@ -153,49 +153,6 @@
             color: #ffffff;
         }
         /* Search pill top-right */
-        #searchContainer {
-            position: absolute;
-            right: 10px;
-            top: 10px;
-        }
-        #searchBar {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.9);
-            backdrop-filter: blur(10px);
-            cursor: text;
-            transition: width 0.25s ease, background 0.25s ease;
-            width: 70px;
-            overflow: hidden;
-        }
-        #searchLabel {
-            font-size: 0.8rem;
-            color: var(--text);
-            white-space: nowrap;
-        }
-        #searchInput {
-            border: none;
-            outline: none;
-            background: transparent;
-            font-size: 0.8rem;
-            color: var(--text);
-            width: 0;
-            opacity: 0;
-            margin-left: 8px;
-            transition: width 0.25s ease, opacity 0.25s ease;
-        }
-        #searchBar.expanded {
-            width: 220px;
-        }
-        #searchBar.expanded #searchInput {
-            width: 140px;
-            opacity: 1;
-        }
-        .dark #searchBar {
-            background: rgba(255,255,255,0.10);
-        }
         #themeToggle {
             position: fixed;
             bottom: 15px;
@@ -230,7 +187,7 @@
 </head>
 <body>
 <header style="z-index:900;">
-    <button id="langBtn" onclick="toggleLang()">தமிழ் / EN</button>
+    
     <div class="nav-wrapper">
         <div class="nav-pill" id="nav-pill"></div>
         <nav>
@@ -241,15 +198,11 @@
             <a onclick="showPage('about', this)">About / என்னைப்பற்றி</a>
         </nav>
     </div>
-    <div id="searchContainer">
-        <div id="searchBar" onclick="toggleSearch(event)">
-            <span id="searchLabel">Search</span>
-            <input id="searchInput" type="text" placeholder="Search..." />
-        </div>
+    
     </div>
 </header>
 
-<section id="home" class="page" style="display:block; opacity:1; transform:translateX(0) scale(1);">
+<section id="home" class="page" style="divoidFunction opacity:1; transform:translateX(0) scale(1);">
     <div style="margin-top:15vh;">
         <h1 id="title-en" class="title">Elvan Parthasarathy</h1>
         <h1 id="title-ta" class="title title-small">எல்வன் பார்த்தசாரதி</h1>
@@ -286,7 +239,7 @@
         }
     }
 
-    function toggleLang() {
+    function voidFunction() {
         isTamil = !isTamil;
         const tamilNow = isTamil;
         if (tamilNow) {
