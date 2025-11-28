@@ -26,6 +26,7 @@
             opacity: 1 !important;
         }
         .dark .nav-wrapper {
+            bottom: 0; /* ensure full bottom alignment on mobile */
             background: rgba(255,255,255,0.06);
             backdrop-filter: blur(18px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
@@ -176,7 +177,7 @@
         @media (max-width: 768px) {
             header {
                 top: auto;
-                bottom: 60px;
+                bottom: 0;
                 width: 100%;
             }
             nav {
@@ -188,32 +189,49 @@
                 flex-direction: column;
                 display: flex;
                 align-items: center;
-                padding: 8px 0;
+                justify-content: center;
+                padding: 14px 0;
                 width: 20vw;
+                text-align: center;
                 font-size: 0.7rem;
+                position: relative;
             }
             .icon {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
                 margin-bottom: 3px;
             }
             .label {
                 font-size: 0.6rem;
             }
-            .page {
-                margin-top: 20px;
-                min-height: calc(100vh - 150px);
-            }
             .nav-wrapper {
-                width: 100%;
-                border-radius: 0;
-                padding: 6px 0;
+                width: 100vw;
+                border-radius: 22px 22px 0 0;
+                padding: 10px 0;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                background: rgba(255,255,255,0.82);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 -6px 30px rgba(0,0,0,0.25);
+            }
+            .dark .nav-wrapper {
+                background: rgba(0,0,0,0.50);
+                box-shadow: 0 -6px 30px rgba(255,255,255,0.15);
             }
             .nav-pill {
-                height: 38px;
-                border-radius: 18px;
+                height: 100%;
+                top: 0;
+                border-radius: 999px;
+                margin-top: 0;
+                box-shadow: none;
+                backdrop-filter: blur(14px);
+            }
+            .page {
+                margin-top: 40px;
+                margin-bottom: 90px;
             }
         }
-            .page {
+        .page {
                 margin-top: 40px;
                 margin-bottom: 90px;
             }
