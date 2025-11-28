@@ -240,7 +240,43 @@
                 left: 10px;
             }
         }
-    </style>
+    .quote-bubble {
+            max-width: 75%;
+            margin: 40px 0 10px 20px;
+            padding: 16px 20px;
+            background: #E5E5EA; /* Apple Gray */
+            border-radius: 22px;
+            font-size: 1.05rem;
+            line-height: 1.55rem;
+            color: #000;
+            text-align: left;
+            display: inline-block;
+            position: relative;
+            box-shadow: 0 3px 18px rgba(0,0,0,0.18);
+        }
+        .dark .quote-bubble {
+            background: #3A3A3C; /* Apple Dark Gray */
+        }
+        .quote-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            right: -6px; /* Right side tail */
+            width: 16px;
+            height: 16px;
+            background: #E5E5EA;
+            border-bottom-right-radius: 12px;
+            transform: rotate(45deg);
+        }
+        .quote-author {
+            display: block;
+            margin-top: 10px;
+            text-align: right;
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 0.75;
+        }
+        </style>
 </head>
 <body>
 <header style="z-index:900;">
@@ -272,7 +308,125 @@
 
 <section id="blog" class="page"><h2>Blog Coming Soon...</h2></section>
 <section id="stories" class="page"><h2>Stories Page Loading...</h2></section>
-<section id="thoughts" class="page"><h2>Quotes Will Appear Here...</h2></section>
+<section id="thoughts" class="page">
+<h2 style="margin-bottom:20px;">Quotes</h2>
+
+<h3 style="margin-top:20px; opacity:0.7;">Quote 1 — English Original</h3>
+
+<p class="english" style="font-size:1.1rem; line-height:1.6rem; max-width:700px; margin:0 auto; text-align:center;">
+<strong>“The thing is nowhere — that’s how it goes,<br>
+It’s the plan you make, that no one knows.<br>
+It may change from what it’s meant to be,<br>
+The decision, in the end, it’s all with me.”</strong>
+<br><br>
+— <strong>Elvan Parthasarathy</strong>
+</p>
+
+<h3 style='margin-top:50px; opacity:0.7;'>Quote 2 — Tamil Original</h3>
+<p style="font-size:1.1rem; line-height:1.6rem; max-width:700px; margin:40px auto 0; text-align:center;">
+<strong>"நான் ஒன்றுமறியே,<br>
+மனிதர் முற்றுமறியே.<br>
+எவரும் பிழையற்றோர் அன்று,<br>
+தவரே நிழலாய் நிற்கும்."</strong>
+<br><br>
+— <strong>எல்வன் பார்த்தசாரதி</strong> 
+</p>
+
+<h4 style='margin-top:20px; opacity:0.7;'>Quote 2 — English Translation</h4>
+<p style="font-size:1rem; opacity:0.8; line-height:1.5rem; max-width:700px; margin:10px auto 0; text-align:center;">
+<strong>“I know not a single knowing,<br>
+nor mankind ever all‑knowing.<br>
+We are none ever free of flaw —<br>
+it stands beside us evermore,<br>
+like our reflection on the floor.”</strong>
+<br><br>
+— <strong>Elvan Parthasarathy</strong> 
+</p>
+
+<h3 style='margin-top:50px; opacity:0.7;'>Quote 3 — Tamil Original</h3>
+<p style="font-size:1.1rem; line-height:1.6rem; max-width:700px; margin:40px auto 0; text-align:center;">
+<strong>"முன்னே முடிவின் முடிவு மாரின்,<br>முன்னே முடிவிலா முடிவு நன்னின்"</strong>
+<br><br>
+— <strong>எல்வன் பார்த்தசாரதி</strong>
+</p>
+
+<h4 style='margin-top:20px; opacity:0.7;'>Quote 3 — English Translation</h4>
+<p style="font-size:1rem; opacity:0.8; line-height:1.5rem; max-width:700px; margin:10px auto 0; text-align:center;">
+<strong>“A chosen course may twist and bend,<br>
+Yet untold paths bring joys unpenned.”</strong>
+<br><br>
+— <strong>Elvan Parthasarathy</strong>
+</p>
+
+
+
+<!-- Quote 4 -->
+<h3 style='margin-top:50px; opacity:0.7;'>Quote 4 — Tamil Original</h3>
+<p style="font-size:1.1rem; line-height:1.6rem; max-width:700px; margin:40px auto 0; text-align:center;">
+<strong>"நிழல் தேடி நீ செல்லகையில்<br>
+எவரும் வாரா நீயே எல் ஞாயிறாக"</strong>
+<br><br>
+— <strong>எல்வன் பார்த்தசாரதி</strong>
+</p>
+
+<h4 style='margin-top:20px; opacity:0.7;'>Quote 4 — English Translation</h4>
+<p style="font-size:1rem; opacity:0.8; line-height:1.5rem; max-width:700px; margin:10px auto 0; text-align:center;">
+<strong>“As you walk seeking shade, none will come<br>
+You must become your own blazing sun”</strong>
+<br><br>
+— <strong>Elvan Parthasarathy</strong>
+</p>
+
+<h3 style='margin-top:50px; opacity:0.7;'>Quote 5 — English Original</h3>
+<p style="font-size:1.1rem; line-height:1.6rem; max-width:700px; margin:40px auto 90px; text-align:center;">
+<strong>“No two shadows dance the same,<br>
+Try to enjoy the rhythm.”</strong><br><br>
+— <strong>Elvan Parthasarathy</strong>
+</p>
+
+
+
+<!-- Quote 6 -->
+<h3 style='margin-top:50px; opacity:0.7;'>Quote 6 — English Original</h3>
+<p style="font-size:1.1rem; line-height:1.6rem; max-width:700px; margin:40px auto 90px; text-align:center;">
+<strong>“Every locked door opens only<br>
+to reveal another passage.”</strong><br><br>
+— <strong>Elvan Parthasarathy</strong>
+</p>
+
+
+
+<!-- Quote 7 -->
+<h3 style='margin-top:50px; opacity:0.7;'>Quote 7 — Tamil Original</h3>
+<p style="font-size:1.1rem; line-height:1.6rem; max-width:700px; margin:40px auto 0; text-align:center;">
+<strong>"நன்னதியில் வாழ்த்துவும் பிறரை,<br>
+இதற்கென்னோர் காரணமில்லை.<br>
+அந்நதியில் கிடைக்கும் உணரவை,<br>
+தரவுவதற்கோர் வழியுமில்லை."</strong>
+<br><br>
+— <strong>எல்வன் பார்த்தசாரதி</strong>
+</p>
+
+<h4 style='margin-top:20px; opacity:0.7;'>Quote 7 — English Translation</h4>
+<p style="font-size:1rem; opacity:0.8; line-height:1.5rem; max-width:700px; margin:10px auto 0; text-align:center;">
+<strong>“Wishing someone always feels good,<br>
+doesn’t matter what it’s for.<br>
+Just enjoy spreading a little happiness!”</strong>
+<br><br>
+— <strong>Elvan Parthasarathy</strong>
+</p>
+
+<h4 style='margin-top:20px; opacity:0.7;'>Quote 7 — Malayalam Transliteration</h4>
+<p style="font-size:1rem; opacity:0.8; line-height:1.5rem; max-width:700px; margin:10px auto 0; text-align:center;">
+<strong>"നന്നതില് വാഴ്ത്തുവും പിറരൈ<br>
+ഇതർകെ നോർ കാരണ മില്ലൈ<br>
+അന്നതില് കിളെക്കും ഉണർവൈ<br>
+തരുവതർകോർ വഴിയു മില്ലൈ"</strong>
+<br><br>
+— <strong>എൽവൻ പാർത്തസാരതി</strong>
+</p>
+
+</section>
 <section id="about" class="page"><h2>About Me</h2>
 <p>Hi, I'm <strong>Elvan</strong>.<br><br>
 My real name is <strong>Jaiprakash P</strong>.<br>
