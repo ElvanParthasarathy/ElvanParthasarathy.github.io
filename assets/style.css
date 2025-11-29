@@ -169,6 +169,32 @@ main {
                 font-size: 0.8rem;
                 opacity: 0.6;
             }
+/* QUOTE CARDS */
+.quote-list {
+    display: grid;
+    gap: 16px;
+}
+.quote-card {
+    padding: 14px 16px;
+    text-align: left;
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    border-radius: 12px;
+}
+.quote-card h4 {
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+    opacity: 0.65;
+}
+.quote-card p {
+    line-height: 1.5rem;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+.quote-card span {
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
 
     
 }
