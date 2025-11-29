@@ -228,13 +228,30 @@
 
     <main id="page-container"></main>
 
+
+</div>
+</div>
+
     <!-- TEMPLATES -->
     <template id="tpl-home">
         <div class="page-view page-fade">
-            <h1 class="title">Elvan Parthasarathy</h1>
-            <h2 class="title-small">எல்வன் பார்த்தசாரதி</h2>
-            <h3>(Real Name: Jaiprakash P)</h3>
-            <h4 class="title-small" style="margin-top: 8px;">(இயற்பெயர்: பா. ஜெய்பிரகாஷ்)</h4>
+            <div style="display:flex; justify-content:center; gap:20px; align-items:center; width:100%; max-width:900px; margin:0 auto 15px; padding:0 10px;">
+    <img src="logo.png" alt="Elvan Logo" style="width:90px; filter:drop-shadow(0 2px 6px rgba(0,0,0,0.25));" />
+    <div id="date-time" style="font-size:14px; font-weight:600; text-align:right; opacity:0.8;"></div>
+</div>
+
+<h1 class="title">Elvan Parthasarathy</h1>
+<h2 class="title-small">எல்வன் பார்த்தசாரதி</h2>
+<h3>(Real Name: Jaiprakash P)</h3>
+<h4 class="title-small" style="margin-top: 8px;">(இயற்பெயர்: பா. ஜெய்பிரகாஷ்)</h4>
+<br>
+<div class="contact-info-home" style="font-size:14px; font-weight:600; opacity:0.85;">
+📞 <a style="color:inherit; text-decoration:none;" href="tel:+919345128797">+91 9345128797</a> &nbsp;|&nbsp;
+📧 <a style="color:inherit; text-decoration:none;" href="mailto:jaiprakashpartha@gmail.com">jaiprakashpartha@gmail.com</a> &nbsp;|&nbsp;
+🔗 <a style="color:inherit; text-decoration:none;" href="https://www.linkedin.com/in/jaiprakashpartha" target="_blank">LinkedIn</a>
+</div>
+
+            </div>
         </div>
     </template>
 
@@ -269,7 +286,7 @@
                     — <strong>Elvan Parthasarathy</strong>
                 </p>
 
-                <h3>Quote 2 — Thamizh Original</h3>
+                <h3>Quote 2 — Tamil Original</h3>
                 <p>
                     <strong>
                         "நான் ஒன்றுமறியே,<br />
@@ -294,7 +311,7 @@
                     — <strong>Elvan Parthasarathy</strong>
                 </p>
 
-                <h3>Quote 3 — Thamizh Original</h3>
+                <h3>Quote 3 — Tamil Original</h3>
                 <p>
                     <strong>
                         "முன்னே முடிவின் முடிவு மாறின்,<br />முன்னே முடிவிலா முடிவு நன்னின்"
@@ -313,7 +330,7 @@
                     — <strong>Elvan Parthasarathy</strong>
                 </p>
 
-                <h3>Quote 4 — Thamizh Original</h3>
+                <h3>Quote 4 — Tamil Original</h3>
                 <p>
                     <strong>
                         "நிழல் தேடி நீ செல்கையில்<br />
@@ -353,7 +370,7 @@
                     — <strong>Elvan Parthasarathy</strong>
                 </p>
 
-                <h3>Quote 7 — Thamizh Original</h3>
+                <h3>Quote 7 — Tamil Original</h3>
                 <p>
                     <strong>
                         "நன்னதியில் வாழ்த்துவும் பிறரை,<br />
@@ -365,18 +382,6 @@
                     — <strong>எல்வன் பார்த்தசாரதி</strong>
                 </p>
 
-                 <h4>Quote 7 — Malayalam Transliteration</h4>
-                <p>
-                    <strong>
-                        "നന്നതിൽ വാഴ്ത്തുവും പിറരൈ<br />
-                        ഇതർകെനോർ കാരണമില്ലൈ<br />
-                        അന്നതിൽ കിളൈക്കും ഉണർവൈ<br />
-                        തരുവതർകോർ വഴിയുമില്ലൈ"
-                    </strong>
-                    <br /><br />
-                    — <strong>എൽവൻ പാർത്തസാരതി</strong>
-                </p>
-
                 <h4>Quote 7 — English Translation</h4>
                 <p>
                     <strong>
@@ -386,6 +391,18 @@
                     </strong>
                     <br /><br />
                     — <strong>Elvan Parthasarathy</strong>
+                </p>
+
+                <h4>Quote 7 — Malayalam Transliteration</h4>
+                <p>
+                    <strong>
+                        "நன்னதில் வாச்த்துவும் பீரரை<br />
+                        இதர்கெ நோர் காரண மில்லே<br />
+                        அன்னதில் கிழைக்கும் உனர்வே<br />
+                        தருவதர்கோர் வழியு மில்லே"
+                    </strong>
+                    <br /><br />
+                    — <strong>எல்வன் பார்த்தசாரதி</strong>
                 </p>
             </div>
         </div>
@@ -413,9 +430,6 @@
                 My own place.<br />
                 Where every word is mine.
             </p>
-            <!-- PLACE YOUR AD SCRIPT HERE -->
-        
-        <!-- END AD SCRIPT -->
         </div>
     </template>
 
@@ -470,7 +484,18 @@
             if (clickedLink) movePill(clickedLink);
         }
 
-        window.addEventListener("load", () => {
+        function updateDateTime() {
+    if (currentPage !== "home") return;
+    const now = new Date();
+    const date = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    const time = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
+    const el = document.getElementById("date-time");
+    if (el) el.innerHTML = `${date}<br>${time}`;
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+window.addEventListener("load", () => {
             const firstLink = document.querySelector("nav a[data-page='home']");
             renderPage("home");
             if (firstLink) {
@@ -479,5 +504,6 @@
             }
         });
     </script>
+<footer style="text-align:center; font-size:13px; padding:20px 0; opacity:0.8;">© 2025 Elvan Parthasarathy — All Rights Reserved</footer>
 </body>
 </html>
