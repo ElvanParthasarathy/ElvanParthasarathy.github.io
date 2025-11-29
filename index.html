@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elvan Parthasarathy</title>
     <link rel="icon" type="image/png" href="logo2.png">
+     <!-- Google AdSense Global Script (paste here) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5392072917035799"
+     crossorigin="anonymous"></script>
+    
     <style>
         @font-face {
             font-family: "Mukta Malar";
@@ -458,14 +462,30 @@ setInterval(updateDateTime, 1000);
 updateDateTime();
 
 window.addEventListener("load", () => {
-            const firstLink = document.querySelector("nav a[data-page='home']");
-            renderPage("home");
-            if (firstLink) {
-                firstLink.classList.add("active-link");
-                movePill(firstLink);
-            }
-        });
+    const firstLink = document.querySelector("nav a[data-page='home']");
+    renderPage("home");
+    if (firstLink) {
+        firstLink.classList.add("active-link");
+        movePill(firstLink);
+    }
+});
+</script>
+
+<!-- Google AdSense Bottom Ad -->
+<div style="max-width:900px; margin:30px auto 0; padding:0 16px; text-align:center;">
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-5392072917035799"
+        data-ad-slot="YOUR-SLOT-ID-HERE" 
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-<footer style="text-align:center; font-size:13px; padding:20px 0; opacity:0.8;">© 2025 Elvan Parthasarathy — All Rights Reserved</footer>
+</div>
+
+<footer style="text-align:center; font-size:13px; padding:20px 0; opacity:0.8;">
+    © 2025 Elvan Parthasarathy — All Rights Reserved
+</footer>
 </body>
 </html>
