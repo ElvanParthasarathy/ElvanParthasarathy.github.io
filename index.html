@@ -85,13 +85,9 @@
             outline: none;
         }
 
-        nav a .icon {
-            font-size: 1.1rem;
-        }
+        nav a .icon { font-size: 1.1rem; } /* desktop default */
 
-        nav a .label {
-            font-size: 0.8rem;
-        }
+        nav a .label { font-size: 0.8rem; } /* desktop default */
 
         .active-link {
             color: var(--text);
@@ -183,11 +179,18 @@
             }
 
             nav {
-                gap: 10px;
+                gap: 4px;
+            }
+
+            /* MOBILE: Icons hidden, short labels shown */
+            nav a .icon {
+                display: none;
             }
 
             nav a .label {
-                display: none; /* mobile: icon only */
+                display: inline;
+                font-size: 0.9rem;
+                font-weight: 600;
             }
 
             main {
@@ -216,9 +219,9 @@
             <nav>
                 <a data-page="home" onclick="showPage('home', this)"><span class="icon">🏠</span><span class="label">Home</span></a>
                 <a data-page="blog" onclick="showPage('blog', this)"><span class="icon">✍️</span><span class="label">Blog</span></a>
-                <a data-page="stories" onclick="showPage('stories', this)"><span class="icon">📚</span><span class="label">Stories</span></a>
-                <a data-page="thoughts" onclick="showPage('thoughts', this)"><span class="icon">💭</span><span class="label">Quotes</span></a>
-                <a data-page="about" onclick="showPage('about', this)"><span class="icon">👤</span><span class="label">About</span></a>
+                <a data-page="stories" onclick="showPage('stories', this)"><span class="icon">📚</span><span class="label">Story</span></a>
+                <a data-page="thoughts" onclick="showPage('thoughts', this)"><span class="icon">💭</span><span class="label">Quote</span></a>
+                <a data-page="about" onclick="showPage('about', this)"><span class="icon">👤</span><span class="label">Me</span></a>
             </nav>
         </div>
     </header>
