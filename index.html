@@ -5,362 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elvan Parthasarathy</title>
     <link rel="icon" type="image/png" href="logo2.png">
-
-    <!--
-    Google AdSense (disabled for now) -->
-
-    <meta name="google-adsense-account" content="ca-pub-5392072917035799">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5392072917035799"
-        crossorigin="anonymous"></script>
-   
-    <style>
-        @font-face {
-            font-family: "Mukta Malar";
-            src: url("MuktaMalar-Regular.ttf");
-        }
-
-        :root {
-            --bg: #ffffff;
-            --text: #000000;
-            --accent: #000000;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: "Mukta Malar", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-        }
-
-        .app-shell {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* SIDEBAR */
-        .sidebar {
-            position: fixed;
-            inset: 0 auto 0 0;
-            width: 240px;
-            padding: 20px 16px;
-            background: #f5f5f5;
-            border-right: 1px solid rgba(0, 0, 0, 0.06);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .sidebar-top {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .sidebar-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 18px;
-            border-radius: 999px;
-            background: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-            pointer-events: none; /* Disable click */
-        }
-
-        .sidebar-logo img {
-            width: 38px;
-            height: 38px;
-            border-radius: 999px;
-            object-fit: cover;
-        }
-
-        .sidebar-logo-text {
-            line-height: 1.2;
-            font-size: 0.9rem;
-        }
-
-        .sidebar-logo-text strong {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .sidebar-logo-text span {
-            opacity: 0.6;
-        }
-
-        .sidebar-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            margin-top: 8px;
-        }
-
-        .sidebar-nav a {
-            display: block;
-            padding: 8px 12px;
-            border-radius: 999px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            color: var(--accent);
-            cursor: pointer;
-            transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
-        }
-
-        .sidebar-nav a:hover {
-            background: rgba(0, 0, 0, 0.04);
-            transform: translateX(1px);
-        }
-
-        .sidebar-nav a.active-link {
-    background: #000000;
-    color: #ffffff;
-    font-weight: 700;
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-        .sidebar-bottom {
-            margin-top: 24px;
-            font-size: 0.78rem;
-            opacity: 0.7;
-        }
-
-        /* MAIN CONTENT */
-        main {
-            flex: 1;
-            margin-left: 240px;
-            padding: 28px 18px 40px;
-        }
-
-        .page-view {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .page-fade {
-            animation: fadeIn 0.25s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(6px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .title {
-            font-size: 2.6rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .title-small {
-            font-size: 1.2rem;
-            opacity: 0.7;
-        }
-
-        .section-title {
-            font-size: 1.6rem;
-            margin-bottom: 18px;
-        }
-
-        /* Quotes typography */
-        .quote-block h3 {
-            margin-top: 40px;
-            margin-bottom: 10px;
-            opacity: 0.75;
-            font-size: 1rem;
-        }
-
-        .quote-block p {
-            font-size: 1.05rem;
-            line-height: 1.6rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .quote-block p + h4 {
-            margin-top: 22px;
-        }
-
-        /* ABOUT */
-        .about-text {
-            max-width: 720px;
-            margin: 20px auto 40px;
-            line-height: 1.6rem;
-            font-size: 1rem;
-            text-align: left;
-        }
-
-        .about-text strong {
-            font-weight: 700;
-        }
-
-        /* HOME LAYOUT */
-        .home-header-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            align-items: center;
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto 15px;
-            padding: 0 10px;
-        }
-
-        .home-logo {
-            width: 90px;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
-        }
-
-        .home-datetime {
-            font-size: 14px;
-            font-weight: 600;
-            text-align: right;
-            opacity: 0.8;
-        }
-
-        .contact-info-home {
-            font-size: 14px;
-            font-weight: 600;
-            opacity: 0.85;
-        }
-
-        .contact-info-home a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 13px;
-            padding: 10px 0 16px;
-            opacity: 0.8;
-        }
-
-        /* Disable Blue Highlight on Mobile */
-        * {
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            main {
-                padding-inline: 14px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .app-shell {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                position: static;
-                width: 100%;
-                padding: 10px 10px 12px;
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .sidebar-logo {
-                max-width: 260px;
-                margin: 0 auto 6px;
-                justify-content: flex-start;
-            }
-
-            .sidebar-nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .sidebar-nav a {
-                font-size: 0.88rem;
-                padding: 6px 10px;
-            }
-
-            .sidebar-bottom {
-                text-align: center;
-                margin-top: 6px;
-            }
-
-            main {
-                margin-left: 0;
-                padding-top: 10px;
-            }
-
-            .title {
-                font-size: 2.1rem;
-            }
-
-            .about-text {
-                font-size: 0.95rem;
-                padding: 0 4px;
-            }
-
-            .quote-block p {
-                font-size: 0.98rem;
-            }
-
-            .home-header-row {
-                flex-direction: row;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
     <div class="app-shell">
+
+        <!-- SIDEBAR -->
         <aside class="sidebar">
-            <div class="sidebar-top">
-                <div class="sidebar-logo">
-                    <div class="sidebar-logo-text">
-                        <strong>Elvan</strong>
-                    </div>
-                </div>
-
-                <nav class="sidebar-nav">
-                    <a href="index.html">Home</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="stories.html">Stories</a>
-                    <a href="quotes.html">Quotes</a>
-                    <a href="about.html">About</a>
-                </nav>
+            <div class="sidebar-logo">
+                <strong>Elvan</strong>
             </div>
 
-            <div class="sidebar-bottom">
-                © 2025 Elvan Parthasarathy
-            </div>
+            <nav class="sidebar-nav">
+                <a class="active-link" href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="stories.html">Stories</a>
+                <a href="quotes.html">Quotes</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <div class="sidebar-bottom">© 2025 Elvan</div>
         </aside>
 
+        <!-- MAIN CONTENT -->
         <main>
-        <div class="page-view">
-            <h1 class="title">Elvan Parthasarathy</h1>
-            <h2 class="title-small">Writer • Student • Creator</h2>
-            <br>
-            <div class="contact-info-home">
-                📧 <a href="mailto:jaiprakashpartha@gmail.com">jaiprakashpartha@gmail.com</a> &nbsp;|&nbsp;
-                🔗 <a href="https://www.linkedin.com/in/jaiprakashpartha" target="_blank">LinkedIn</a>
+            <div class="page-view page-fade">
+                <h1 class="title">Elvan Parthasarathy</h1>
+                <h2 class="title-small">Writer • Student • Creator</h2>
+                <br>
+
+                <div class="contact-info-home">
+                    📧 <a href="mailto:jaiprakashpartha@gmail.com">jaiprakashpartha@gmail.com</a>
+                    &nbsp;|&nbsp;
+                    🔗 <a href="https://www.linkedin.com/in/jaiprakashpartha" target="_blank">LinkedIn</a>
+                </div>
             </div>
-        </div>
-    </main>
-    </div>
+        </main>
 
-    
-    </div>
-    
-
-    <footer>
-        © 2025 Elvan Parthasarathy — All Rights Reserved
-    </footer>
+    </div> <!-- app-shell end -->
 </body>
 </html>
