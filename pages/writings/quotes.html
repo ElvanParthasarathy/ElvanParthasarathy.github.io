@@ -1,0 +1,82 @@
+<style>
+    /* Scoped Styles for Quotes - OPTIMIZED FOR READABILITY */
+    
+    /* 1. Masonry Grid: Slightly narrower columns for better vertical flow */
+    .quotes-masonry { columns: 1; column-gap: 20px; }
+    @media (min-width: 768px) { .quotes-masonry { columns: 2 280px; } }
+    @media (min-width: 1200px) { .quotes-masonry { columns: 3 280px; } }
+
+    .quote-card {
+        break-inside: avoid; 
+        background: #fff; 
+        border: 1px solid #eee; 
+        padding: 24px; /* Reduced from 32px for better fit */
+        border-radius: 16px; 
+        margin-bottom: 20px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        position: relative; 
+        display: inline-block; 
+        width: 100%;
+    }
+    .quote-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: #111; }
+    
+    /* 2. Quote Text: Significantly reduced font size for mobile/desktop readability */
+    .quote-text { 
+        font-family: "Mukta Malar", sans-serif; 
+        font-size: 1rem; /* Reduced from 1.2rem */
+        line-height: 1.5; 
+        color: #222; 
+        margin-bottom: 8px; 
+    }
+
+    /* 3. Quote Mark: Make sure the quote bubble doesn't overlap text too much */
+    .quote-mark {
+        position: absolute; top: 15px; left: 20px; font-size: 3rem;
+        line-height: 1; font-family: serif; color: #f0f0f0; z-index: 0; pointer-events: none;
+    }
+
+    .quote-sub-label {
+        font-size: 0.7rem; /* Reduced from 0.75rem */
+        color: #999; 
+        text-transform: uppercase; 
+        letter-spacing: 0.5px;
+        margin-bottom: 4px;
+        font-weight: 600;
+        font-family: "Inter", sans-serif;
+    }
+
+    .quote-author { 
+        font-size: 0.85rem; /* Reduced from 0.9rem */
+        font-weight: 700; 
+        color: #111; 
+        margin-top: 10px; 
+        display: block; 
+        text-align: right; 
+    }
+    
+    .pagination-container { display: flex; justify-content: center; gap: 10px; margin-top: 40px; margin-bottom: 60px; }
+    .page-btn {
+        width: 36px; height: 36px; border-radius: 50%; border: 1px solid #eee;
+        background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        font-size: 0.85rem; /* Reduced font size */
+    }
+    .page-btn:hover { background: #fafafa; border-color: #000; }
+    .page-btn.active { background: #000; color: #fff; border-color: #000; }
+</style>
+
+<div class="page-view page-fade">
+    <a href="#/writings" class="spa-link" style="display: inline-flex; align-items: center; gap: 6px; color: #666; text-decoration: none; font-weight: 600; margin-bottom: 24px;">
+        <span>←</span> Back to Writings
+    </a>
+
+    <div class="hero-section" style="margin-bottom: 40px;">
+        <h1 class="title">Quotes</h1>
+        <h2 class="subtitle">Fragments of wisdom I've collected over time.</h2>
+    </div>
+
+    <div id="quotes-container" class="quotes-masonry">
+        <!-- Quotes will be injected here by JS -->
+    </div>
+    
+    <div id="pagination-container" class="pagination-container"></div>
+</div>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvan Parthasarathy</title>
+    <link rel="icon" type="image/png" href="logo2.png">
+
+    <!-- 1. MAIN STYLE (Global + Desktop) -->
+    <link rel="stylesheet" href="assets/style.css">
+
+    <!-- 2. MOBILE STYLE (Loads last to override) -->
+    <link rel="stylesheet" href="assets/mobile.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Mukta+Malar:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="app-shell">
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="brand">Elvan</div>
+        <div class="mobile-actions">
+            <a href="#/about" class="about-pill spa-link">
+                <img src="assets/icons/profile.svg" alt="Me">
+                About Me
+            </a>
+            <a href="#/settings" class="settings-btn-small spa-link">
+                <img src="assets/icons/settings.svg" alt="Settings">
+            </a>
+        </div>
+    </header>
+
+    <!-- Sidebar (Desktop) -->
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <div class="brand desktop-only">Elvan</div>
+            <nav class="sidebar-nav">
+                <a href="#/home" class="nav-item spa-link" data-route="home">
+                    <img src="assets/icons/home.svg" class="nav-icon" width="20" height="20">
+                    <span class="label">Home</span>
+                </a>
+                <a href="#/writings" class="nav-item spa-link" data-route="writings">
+                    <img src="assets/icons/writings.svg" class="nav-icon" width="20" height="20">
+                    <span class="label">Writings</span>
+                </a>
+                <a href="#/portfolio" class="nav-item spa-link" data-route="portfolio">
+                    <img src="assets/icons/portfolio.svg" class="nav-icon" width="20" height="20">
+                    <span class="label">Portfolio</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom desktop-only">
+            <a href="#/about" class="profile-card spa-link" data-route="about">
+                <div class="avatar">
+                    <img src="assets/icons/profile.svg" width="36" height="36">
+                </div>
+                <span class="name">About Me</span>
+            </a>
+            <a href="#/settings" class="settings-btn spa-link" data-route="settings">
+                <img src="assets/icons/settings.svg" width="20" height="20">
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div id="content-area" class="page-view page-fade">
+            Loading...
+        </div>
+    </main>
+
+</div>
+
+<!-- SPA Router Script -->
+<script src="app.js"></script>
+
+</main>
+
+    <script src="assets/quotes_data.js"></script>
+    <script src="assets/quotes.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<style>
+    .coming-soon-container { 
+        display: flex; flex-direction: column; align-items: center; 
+        justify-content: center; text-align: center; padding: 60px 20px; 
+        background: #fff; border: 1px solid #eee; border-radius: 16px; margin-top: 20px; 
+    }
+    .cs-icon { font-size: 4rem; margin-bottom: 20px; animation: bounce 2s infinite; }
+    .cs-title { font-size: 1.5rem; font-weight: 800; color: #111; margin-bottom: 10px; }
+    .cs-text { font-size: 1rem; color: #666; max-width: 400px; line-height: 1.6; }
+    @keyframes bounce { 
+        0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+        40% {transform: translateY(-10px);} 
+        60% {transform: translateY(-5px);} 
+    }
+</style>
+
+<div class="page-view page-fade">
+    <a href="#/writings" class="spa-link" style="display: inline-flex; align-items: center; gap: 6px; color: #666; text-decoration: none; font-weight: 600; margin-bottom: 24px;">
+        <span>←</span> Back to Writings
+    </a>
+
+    <div class="hero-section" style="margin-bottom: 20px;">
+        <h1 class="title">Blog</h1>
+        <h2 class="subtitle">Daily updates and casual writing.</h2>
+    </div>
+
+    <div class="coming-soon-container">
+        <div class="cs-icon">✍️</div>
+        <div class="cs-title">Under Construction</div>
+        <p class="cs-text">I'm currently writing the first few posts. <br>Check back soon for updates!</p>
+    </div>
+</div>
