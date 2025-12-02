@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quotes - Elvan Parthasarathy</title>
+    <link rel="icon" type="image/png" href="../logo2.png">
+    
+    <!-- FIX 1: Point UP one level (../) to find the assets folder -->
+    <link rel="stylesheet" href="../assets/style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Mukta+Malar:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Keep existing internal styles */
+        .page-header { margin-bottom: 40px; }
+        .back-link { 
+            display: inline-flex; align-items: center; gap: 6px; 
+            color: #666; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            margin-bottom: 24px; transition: color 0.2s;
+        }
+        .back-link:hover { color: #000; }
+        .back-arrow { font-size: 1.2rem; line-height: 0; position: relative; top: -1px; }
+
+        .quotes-masonry { columns: 1; column-gap: 24px; transition: opacity 0.3s ease; }
+        @media (min-width: 768px) { .quotes-masonry { columns: 2 300px; } }
+        @media (min-width: 1200px) { .quotes-masonry { columns: 3 300px; } }
+
+        .quote-card {
+            break-inside: avoid; background: #fff; border: 1px solid #eee;
+            padding: 32px; border-radius: 16px; margin-bottom: 24px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative; display: inline-block; width: 100%;
+        }
+        .quote-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: #111; }
+
+        .quote-mark {
+            position: absolute; top: 20px; left: 24px; font-size: 4rem;
+            line-height: 1; font-family: serif; color: #f0f0f0; z-index: 0; pointer-events: none;
+        }
+        .quote-content { position: relative; z-index: 1; }
+        
+        .quote-text, .quote-author, .quote-source, .transliteration-text, .translation-text {
+            font-family: "Mukta Malar", sans-serif !important;
+        }
+
+        .quote-text { font-size: 1.2rem; line-height: 1.6; color: #222; margin-bottom: 10px; }
+        .translation-text { color: #666; font-size: 1.1rem; font-style: italic; }
+        .transliteration-text { color: #888; font-size: 1rem; }
+        .quote-divider { height: 1px; background: #f0f0f0; margin: 15px 0; width: 50%; }
+        
+        .quote-meta { display: flex; align-items: center; justify-content: flex-end; padding-top: 16px; margin-top: 10px; }
+        .quote-author { font-size: 0.9rem; font-weight: 700; color: #111; }
+        
+        .quote-tag {
+            display: inline-block; font-size: 0.7rem; font-weight: 600; color: #666;
+            background: #f7f7f7; padding: 4px 10px; border-radius: 20px; margin-bottom: 16px;
+            text-transform: uppercase; letter-spacing: 0.5px; font-family: "Inter", sans-serif;
+        }
+
+        .pagination-container { display: flex; justify-content: center; gap: 10px; margin-top: 40px; margin-bottom: 60px; }
+        .page-btn {
+            width: 40px; height: 40px; border-radius: 50%; border: 1px solid #eee;
+            background: #fff; cursor: pointer; font-family: "Inter", sans-serif;
+            font-weight: 600; transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+        }
+        .page-btn:hover:not(.disabled) { border-color: #000; background: #fafafa; }
+        .page-btn.active { background: #000; color: #fff; border-color: #000; }
+        .page-btn.disabled { opacity: 0.3; cursor: not-allowed; }
+    </style>
+</head>
+
+<body>
+    <div class="app-shell">
+
+        <header class="mobile-header">
+            <div class="brand">Elvan</div>
+            <div class="mobile-actions">
+                <a href="../about.html" class="avatar-small">
+                    <!-- FIX 2: Point images UP one level -->
+                    <img src="../assets/icons/profile.svg" alt="Me" width="32" height="32">
+                </a>
+                <div class="settings-btn-small">
+                    <img src="../assets/icons/settings.svg" alt="Settings" width="24" height="24">
+                </div>
+            </div>
+        </header>
+
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="brand desktop-only">Elvan</div>
+                <nav class="sidebar-nav">
+                    
+                    <!-- FIX 3: Nav links must go UP one level -->
+                    <a href="../index.html" class="nav-item">
+                        <img src="../assets/icons/home.svg" class="nav-icon" alt="Home" width="20" height="20">
+                        <span class="label">Home</span>
+                    </a>
+
+                    <a href="../writings.html" class="nav-item active">
+                        <img src="../assets/icons/writings.svg" class="nav-icon" alt="Writings" width="20" height="20">
+                        <span class="label">Writings</span>
+                    </a>
+
+                    <a href="../portfolio.html" class="nav-item">
+                        <img src="../assets/icons/portfolio.svg" class="nav-icon" alt="Portfolio" width="20" height="20">
+                        <span class="label">Portfolio</span>
+                    </a>
+
+                </nav>
+            </div>
+
+            <div class="sidebar-bottom desktop-only">
+                <a href="../about.html" class="profile-card">
+                    <div class="avatar">
+                        <img src="../assets/icons/profile.svg" alt="E" width="36" height="36"> 
+                    </div>
+                    <span class="name">About Me</span>
+                </a>
+                <div class="settings-btn" title="Settings">
+                    <img src="../assets/icons/settings.svg" width="20" height="20" alt="Settings">
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-view page-fade">
+                
+                <a href="../writings.html" class="back-link">
+                    <span class="back-arrow">←</span> Back to Writings
+                </a>
+
+                <div class="page-header hero-section">
+                    <h1 class="title">Quotes</h1>
+                    <h2 class="subtitle">Fragments of wisdom I've collected over time.</h2>
+                </div>
+
+                <div id="quotes-container" class="quotes-masonry"></div>
+                <div id="pagination-container" class="pagination-container"></div>
+
+            </div>
+        </main>
+    </div> 
+
+    <!-- FIX 4: Scripts must also point UP one level -->
+    <script src="../assets/quotes_data.js"></script>
+    <script src="../assets/quotes.js"></script>
+</body>
+</html>
