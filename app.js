@@ -116,4 +116,23 @@ function updateHeaderState() {
 }
 
 addEventListener("scroll", updateHeaderState);
+
 document.addEventListener("DOMContentLoaded", updateHeaderState);
+
+
+
+// Keep all your existing app.js code above this block
+// ... (The router logic you already have)
+
+// PWA SERVICE WORKER REGISTRATION (Add this final piece)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(registration => {
+        console.log('PWA Service Worker registered successfully.');
+      })
+      .catch(registrationError => {
+        console.error('PWA Service Worker registration failed:', registrationError);
+      });
+  });
+}
