@@ -1,0 +1,22 @@
+{
+  "name": "Elvan's Web App",
+  "short_name": "ElvanApp",
+  "description": "The official app for Elvan Parthasarathy's website.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/logo2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
