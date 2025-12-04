@@ -1,6 +1,6 @@
 {
-  "name": "Elvan's Web App",
-  "short_name": "ElvanApp",
+  "name": "Elvan",
+  "short_name": "Elvan",
   "description": "The official app for Elvan Parthasarathy's website.",
   "start_url": "/index.html",
   "scope": "/",
